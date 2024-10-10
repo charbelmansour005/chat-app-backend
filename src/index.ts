@@ -7,11 +7,7 @@ import authRoutes from "./routes/authRoutes";
 import cartRoutes from "./routes/cartRoutes";
 import categoryRoutes from "./routes/categoryRoutes";
 import chatroomRoutes from "./routes/chatroomRoutes";
-import { Socket } from "socket.io";
 import cors from "cors";
-import { Chatroom } from "./models/Chatroom";
-import { Message } from "./models/Message";
-import { User } from "./models/User";
 import { initializeSocket } from "./sockets";
 
 export interface IErrorResponse extends Error {
@@ -23,7 +19,6 @@ const app = express();
 app.use(cors());
 
 const http = require("http").Server(app);
-// const io = require("socket.io")(http);
 initializeSocket(http); // Initialize sockets
 
 app.use(express.json());
