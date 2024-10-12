@@ -15,4 +15,13 @@ const addChatroomController: RequestHandler = async (req, res, next) => {
   }
 };
 
-export { addChatroomController };
+const getAllChatrooms: RequestHandler = async (req, res, next) => {
+  try {
+    const chatrooms = await Chatroom.find();
+    return res.status(statusCodes.createSuccess).json(chatrooms);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { addChatroomController, getAllChatrooms };
